@@ -1,4 +1,4 @@
-package com.mgroup.senstore;
+package com.gil.tindersupportapp;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;

@@ -1,4 +1,4 @@
-package com.mgroup.senstore;
+package com.gil.tindersupportapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,22 +12,27 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
-import com.mgroup.senstore.adapters.AppsAdapter;
-import com.mgroup.senstore.utils.UtilityFunctions;
+import com.gil.tindersupportapp.adapters.AppsAdapter;
+import com.gil.tindersupportapp.utils.UtilityFunctions;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int PERMISSIONS_REQUEST_CODE_EXTERNAL_STORAGE = 945;
     private static final int PERMISSIONS_REQUEST_CODE_PHONE_STATE = 944;
     private NavController mNavigationController;
     private BottomNavigationView mNavView;
     private AppsAdapter mAdapter;
+    private ImageView addButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupNavigation();
+        addButton = findViewById(R.id.add);
+        addButton.setOnClickListener(this);
 
         if (!UtilityFunctions.checkPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -106,4 +111,12 @@ public class MainActivity extends AppCompatActivity {
         this.mAdapter=adapter;
     }
 
+
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(this, AddActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(i);
+
+    }
 }

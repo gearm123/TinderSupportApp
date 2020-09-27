@@ -1,4 +1,4 @@
-package com.mgroup.senstore.utils;
+package com.gil.tindersupportapp.utils;
 
 import org.json.JSONArray;
 

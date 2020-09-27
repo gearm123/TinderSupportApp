@@ -1,4 +1,4 @@
-package com.mgroup.senstore.widgets;
+package com.gil.tindersupportapp.widgets;
 
 import android.graphics.Rect;
 import android.view.View;

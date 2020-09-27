@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/allItemsFragment"
-        android:name="com.mgroup.senstore.AllFragment"
+        android:name="com.gil.tindersupportapp.AllFragment"
         android:label="@string/title_all"
         tools:layout="@layout/fragment_all" />
 
     <fragment
         android:id="@+id/newItemsFragment"
-        android:name="com.mgroup.senstore.StoreItemsFragment"
+        android:name="com.gil.tindersupportapp.StoreItemsFragment"
         android:label="@string/title_new"
         tools:layout="@layout/fragment_store_items" />
 
     <fragment
         android:id="@+id/updatesItemsFragment"
-        android:name="com.mgroup.senstore.UpdatesFragment"
+        android:name="com.gil.tindersupportapp.UpdatesFragment"
         android:label="@string/title_updates"
         tools:layout="@layout/fragment_updates" />
 

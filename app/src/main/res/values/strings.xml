@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sensor-CarGuide</string>
+    <string name="app_name">Tinder Support</string>
     <string name="title_all">All</string>
     <string name="title_updates">Upates</string>
     <string name="title_new">New</string>
@@ -23,4 +23,15 @@
     <string name="single_download">wait for dwonload to  complete</string>
     <string name="open_app">open</string>
     <string name="app_not_installed_from_notification">application is not installed</string>
+    <string name="title">Add New Entry</string>
+    <string name="insert_real_name">insert person name</string>
+    <string name="insert_description">insert person description</string>
+    <string name="insert_icon">insert icon url</string>
+    <string name="insert_saved_phone">insert name as saved on phone</string>
+    <string name="insert_facebook">insert facebook link</string>
+    <string name="insert_instagram">insert instagram link</string>
+    <string name="insert_location">insert person current location</string>
+    <string name="insert_seeking">what is she seeking?</string>
+    <string name="submit">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

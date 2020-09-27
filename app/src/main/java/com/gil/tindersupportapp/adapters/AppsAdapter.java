@@ -1,18 +1,18 @@
-package com.mgroup.senstore.adapters;
+package com.gil.tindersupportapp.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.mgroup.senstore.R;
-import com.mgroup.senstore.interfaces.OnAppClickListener;
-import com.mgroup.senstore.model.SensorData;
-import com.mgroup.senstore.widgets.AppView;
+import com.gil.tindersupportapp.R;
+import com.gil.tindersupportapp.interfaces.OnAppClickListener;
+import com.gil.tindersupportapp.model.MatchData;
+import com.gil.tindersupportapp.widgets.AppView;
 import java.util.List;
 
 public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.MyViewHolder> {
 
-    private List<SensorData> mDataset;
+    private List<MatchData> mDataset;
     private OnAppClickListener mItemListener;
 
 
@@ -28,28 +28,32 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.MyViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public AppsAdapter(List<SensorData> myDataset, OnAppClickListener listener) {
+    public AppsAdapter(List<MatchData> myDataset, OnAppClickListener listener) {
         mDataset = myDataset;
         mItemListener = listener;
     }
 
-    public void notifyAppItemChanged(SensorData sensorData) {
+    public void notifyAppItemChanged(MatchData matchData) {
 ;        for (int i = 0; i < mDataset.size(); i++) {
-            if (mDataset.get(i).getAppName().equals(sensorData.getAppName())) {
+            if (mDataset.get(i).getRealNameame().equals(matchData.getRealNameame())) {
                 notifyItemChanged(i);
                 break;
             }
         }
     }
 
-    public void updateItem(SensorData sensorData) {
+    public void updateItem(MatchData matchData) {
         ;        for (int i = 0; i < mDataset.size(); i++) {
-            if (mDataset.get(i).getAppName().equals(sensorData.getAppName())) {
-                mDataset.set(i, sensorData);
+            if (mDataset.get(i).getRealNameame().equals(matchData.getRealNameame())) {
+                mDataset.set(i, matchData);
                 notifyItemChanged(i);
                 break;
             }
         }
+    }
+
+    public void addItem(){
+        notifyDataSetChanged();
     }
 
     // Create new views (invoked by the layout manager)

@@ -1,4 +1,4 @@
-package com.mgroup.senstore.widgets;
+package com.gil.tindersupportapp.widgets;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -11,18 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
-import com.jackandphantom.circularprogressbar.CircleProgressbar;
-import com.mgroup.senstore.R;
-import com.mgroup.senstore.interfaces.OnAppClickListener;
-import com.mgroup.senstore.model.SensorData;
+import com.gil.tindersupportapp.R;
+import com.gil.tindersupportapp.interfaces.OnAppClickListener;
+import com.gil.tindersupportapp.model.MatchData;
 
 public class AppView extends FrameLayout {
 
 
-    private SensorData mAppData;
+    private MatchData mAppData;
     private ImageView mAppIcon;
     private TextView mAppName;
-    private TextView mAppDescription;
+    private TextView mlocation;
     private OnAppClickListener mListener;
     private View mActionTouchTarget;
 
@@ -53,6 +52,7 @@ public class AppView extends FrameLayout {
         setBackgroundColor(getResources().getColor(android.R.color.transparent));
         mAppIcon = findViewById(R.id.app_icon);
         mAppName = findViewById(R.id.app_name);
+        mlocation = findViewById(R.id.location);
         mActionTouchTarget = findViewById(R.id.action_touch_target);
         mActionTouchTarget.setOnClickListener(mInternalActionClickListner);
 
@@ -68,15 +68,15 @@ public class AppView extends FrameLayout {
         }
     };
 
-    public void setAppData(SensorData appData, OnAppClickListener listener) {
+    public void setAppData(MatchData appData, OnAppClickListener listener) {
         mAppData = appData;
         mListener = listener;
         refreshViews();
     }
 
     private void refreshViews() {
-        mAppName.setText(mAppData.getTitleSmall());
-
+        mAppName.setText(mAppData.getRealNameame());
+        mlocation.setText(mAppData.getLocation());
         if (TextUtils.isEmpty(mAppData.getIconUrl())) {
             mAppIcon.setVisibility(View.GONE);
         } else {

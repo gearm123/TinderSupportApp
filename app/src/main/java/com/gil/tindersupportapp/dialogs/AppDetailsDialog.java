@@ -1,4 +1,4 @@
-package com.mgroup.senstore.dialogs;
+package com.gil.tindersupportapp.dialogs;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -18,21 +18,21 @@ import androidx.fragment.app.DialogFragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.mgroup.senstore.R;
-import com.mgroup.senstore.model.SensorData;
+import com.gil.tindersupportapp.R;
+import com.gil.tindersupportapp.model.MatchData;
 
 import android.content.Context;
 
 public class AppDetailsDialog extends DialogFragment implements View.OnClickListener {
     public interface AppActionsClickListener {
-        void onInstallClicked(SensorData sensorData);
+        void onInstallClicked(MatchData matchData);
 
-        void onRemoveClicked(SensorData sensorData);
+        void onRemoveClicked(MatchData matchData);
     }
 
     public static View mRoot;
-    private SensorData mData;
-    public static SensorData aData;
+    private MatchData mData;
+    public static MatchData aData;
     private ImageView mIcon;
     private TextView mTitle;
     private TextView mDescption;
@@ -42,10 +42,10 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
     private AppActionsClickListener mListner;
 
     // TODO: add listener
-    public static AppDetailsDialog build(SensorData sensorData, AppActionsClickListener listner, Context context) {
-        aData= sensorData;
+    public static AppDetailsDialog build(MatchData matchData, AppActionsClickListener listner, Context context) {
+        aData= matchData;
         AppDetailsDialog dialog = new AppDetailsDialog();
-        dialog.setAppDetails(sensorData);
+        dialog.setAppDetails(matchData);
         dialog.setListener(listner);
         return dialog;
     }
@@ -54,8 +54,8 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
         mListner = listner;
     }
 
-    private void setAppDetails(SensorData sensorData) {
-        mData = sensorData;
+    private void setAppDetails(MatchData matchData) {
+        mData = matchData;
     }
 
 
@@ -75,8 +75,6 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
         mIcon = mRoot.findViewById(R.id.app_icon);
         mTitle = mRoot.findViewById(R.id.app_title);
         mDescption = mRoot.findViewById(R.id.app_description);
-        mAction = mRoot.findViewById(R.id.action);
-        mCause = mRoot.findViewById(R.id.cause);
         mCloseButton = mRoot.findViewById(R.id.close_button);
 
         if (mData != null) {
@@ -87,10 +85,8 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
                     .placeholder(R.mipmap.ic_launcher)
                     .into(mIcon);
             mTitle.setText(mData.getDescription());
-            mTitle.setTextColor(getTextColor(mData.getColor()));
-            mDescption.setText(mData.getTooltip());
-            mAction.setText(mData.getaction());
-            mCause.setText(mData.getcause());
+            mTitle.setTextColor(Color.BLUE);
+            mDescption.setText(mData.getDescription());
             hideViews();
 
         }
@@ -144,13 +140,7 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
 
         if(mDescption.getText().toString().isEmpty()) {
             mDescption.setVisibility(View.GONE);
-
-        }if(mAction.getText().toString().isEmpty()){
-            mAction.setVisibility(View.GONE);
-        }if(mCause.getText().toString().isEmpty()){
-            mCause.setVisibility(View.GONE);
         }
-
 
     }
 

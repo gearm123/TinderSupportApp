@@ -1,4 +1,4 @@
-package com.mgroup.senstore;
+package com.gil.tindersupportapp;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.mgroup.senstore.adapters.AppsAdapter;
-import com.mgroup.senstore.dialogs.AppDetailsDialog;
-import com.mgroup.senstore.interfaces.OnAppClickListener;
-import com.mgroup.senstore.model.SensorData;
-import com.mgroup.senstore.widgets.SpacesItemDecoration;
+import com.gil.tindersupportapp.adapters.AppsAdapter;
+import com.gil.tindersupportapp.dialogs.AppDetailsDialog;
+import com.gil.tindersupportapp.interfaces.OnAppClickListener;
+import com.gil.tindersupportapp.model.MatchData;
+import com.gil.tindersupportapp.widgets.SpacesItemDecoration;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -25,9 +25,9 @@ import java.util.List;
 public class StoreItemsFragment extends Fragment implements OnAppClickListener, AppDetailsDialog.AppActionsClickListener {
     private View mRoot;
     private RecyclerView mRecycler;
-    private AppsAdapter mAdapter;
+    public static AppsAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<SensorData> mData = new ArrayList<>();
+    public static List<MatchData> mData = new ArrayList<>();
     public StoreItemsFragment() {
 
     }
@@ -47,20 +47,8 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
         mRecycler.setLayoutManager(mLayoutManager);
         SpacesItemDecoration itemDecoration = new SpacesItemDecoration((int) getContext().getResources().getDimension(R.dimen.space_between_cards));
         mRecycler.addItemDecoration(itemDecoration);
-        if (App.get().isAppReadyToTock()) {
-            dispaydata();
-        } else {
-            mRoot.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (App.get().isAppReadyToTock()) {
-                        dispaydata();
-                    } else {
-                        mRoot.postDelayed(this, 200);
-                    }
-                }
-            }, 500);
-        }
+        dispaydata();
+
         ((SimpleItemAnimator) mRecycler.getItemAnimator()).setSupportsChangeAnimations(false);
         return mRoot;
     }
@@ -86,16 +74,16 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
         mData.clear(); //TODO: improve this , editing existing items
         Log.v("MGCarAppStore","here at disp");
         JSONObject tmpObject=null;
-
+        /*
         ArrayList<String> appParameters;
         for (int i=0;i<App.get().getAllServerAppsData().length();i++) {
             try {
                 tmpObject=App.get().getAllServerAppsData().getJSONObject(i).getJSONObject("payload");
                 appParameters=getAppParameters(tmpObject);
-                SensorData sensorData =new SensorData(appParameters.get(0),appParameters.get(1),appParameters.get(2),appParameters.get(3),appParameters.get(4),
+                MatchData matchData =new MatchData(appParameters.get(0),appParameters.get(1),appParameters.get(2),appParameters.get(3),appParameters.get(4),
                         appParameters.get(5),appParameters.get(6),appParameters.get(7));
 
-                mData.add(sensorData);
+                mData.add(matchData);
             }
             catch(Exception e)
             {
@@ -103,7 +91,8 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
 
             }
         }
-
+        */
+        Log.v("MGCarAppStore","setting elements");
         mAdapter = new AppsAdapter(mData, this);
         mRecycler.setAdapter(mAdapter);
 
@@ -113,14 +102,14 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
     }
 
     @Override
-    public void onItemClick(SensorData item) {
+    public void onItemClick(MatchData item) {
         AppDetailsDialog dialog = AppDetailsDialog.build(item, this,getContext());
 
         dialog.show(getFragmentManager(), "appDetails");
     }
 
     @Override
-    public void onItemActionClick(SensorData item) {
+    public void onItemActionClick(MatchData item) {
         AppDetailsDialog dialog = AppDetailsDialog.build(item, this,getContext());
         dialog.show(getFragmentManager(), "appDetails");
     }
@@ -152,12 +141,12 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
 
 
     @Override
-    public void onInstallClicked(SensorData sensorData) {
+    public void onInstallClicked(MatchData matchData) {
 
     }
 
     @Override
-    public void onRemoveClicked(SensorData sensorData) {
+    public void onRemoveClicked(MatchData matchData) {
 
     }
 }

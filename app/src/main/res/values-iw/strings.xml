@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">מדריך חיישנים</string>
+    <string name="app_name">עזר טינדר</string>
     <string name="title_all">All</string>
     <string name="title_updates">Upates</string>
     <string name="title_new">New</string>
@@ -23,4 +23,15 @@
     <string name="single_download">חכה לסיום ההורדה</string>
     <string name="open_app">פתח</string>
     <string name="app_not_installed_from_notification">האפליקציה אינה מותקנת</string>
+    <string name="title">הוסף רשומה</string>
+    <string name="insert_real_name">הכנס שם</string>
+    <string name="insert_description">הכנס תיאור</string>
+    <string name="insert_icon">הכנס יו אר אל של תמונה</string>
+    <string name="insert_saved_phone">הכנס שם כפי ששמור בפלאפון</string>
+    <string name="insert_facebook">הכנס לינק לפייסבוק</string>
+    <string name="insert_instagram">הכנס לינק לאינסטגרם</string>
+    <string name="insert_location">הכנס מקום מגורים</string>
+    <string name="insert_seeking">מה היא מחפשת ?</string>
+    <string name="submit">הכנס</string>
+    <string name="cancel">בטל</string>
 </resources>

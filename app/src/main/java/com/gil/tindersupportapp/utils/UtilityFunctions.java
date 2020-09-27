@@ -1,4 +1,4 @@
-package com.mgroup.senstore.utils;
+package com.gil.tindersupportapp.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

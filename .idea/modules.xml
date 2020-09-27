@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SensorStore.iml" filepath="$PROJECT_DIR$/.idea/SensorStore.iml" group="SensorStore" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SensorStore/app" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" group="SensorStore/mylibrary" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TinderSupportApp.iml" filepath="$PROJECT_DIR$/.idea/modules/TinderSupportApp.iml" group="TinderSupportApp" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TinderSupportApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" group="TinderSupportApp/mylibrary" />
     </modules>
   </component>
 </project>

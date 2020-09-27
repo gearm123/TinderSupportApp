@@ -1,11 +1,11 @@
-package com.mgroup.senstore;
+package com.gil.tindersupportapp;
 
 import android.Manifest;
 import android.app.Application;
 import android.util.Log;
-import com.mgroup.senstore.utils.AsyncResponse;
-import com.mgroup.senstore.utils.JsonTask;
-import com.mgroup.senstore.utils.UtilityFunctions;
+import com.gil.tindersupportapp.utils.AsyncResponse;
+import com.gil.tindersupportapp.utils.JsonTask;
+import com.gil.tindersupportapp.utils.UtilityFunctions;
 import org.json.JSONArray;
 
 
@@ -13,7 +13,7 @@ public class App extends Application implements AsyncResponse {
     private static App INSTANCE;
     private boolean mIsAppReadyToRock = false;
     private boolean mIsReadyToRead = true;
-     JsonTask asyncTask =new JsonTask(this);
+     //JsonTask asyncTask =new JsonTask(this);
     private JSONArray mAppArray;
 
     public static App get() {
@@ -23,6 +23,7 @@ public class App extends Application implements AsyncResponse {
     @Override
     public void onCreate() {
         super.onCreate();
+        /*
         INSTANCE = this;
         if (!UtilityFunctions.checkPermission(this, Manifest.permission.READ_PHONE_STATE)) {
             mIsReadyToRead=false;
@@ -35,14 +36,14 @@ public class App extends Application implements AsyncResponse {
                 UtilityFunctions.makeToast(getApplicationContext(),R.string.no_internet);
             }
         }
-
+        */
 
     }
 
     public void readCatalog() {
         Log.v("MGCarAppStore","reading catalog");
-        asyncTask.setResonse(this);
-        asyncTask.execute();
+        //asyncTask.setResonse(this);
+        //asyncTask.execute();
     }
 
     @Override
