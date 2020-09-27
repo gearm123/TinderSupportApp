@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">מדריך חיישנים</string>
+    <string name="title_all">All</string>
+    <string name="title_updates">Upates</string>
+    <string name="title_new">New</string>
+
+
+    <string name="action_download">התקן</string>
+    <string name="action_update">עדכן</string>
+    <string name="action_uninstall">הסר</string>
+    <string name="action_installed">מותקן</string>
+    <string name="action_no_more_updates">הגרסה החדשה ביותר מותקנת</string>
+    <string name="cannot_remove_sys_app">לא ניתן להסיר גרסת יצרן</string>
+    <string name="app_not_installed">האפליקציה לא מותקנת על המכשיר</string>
+    <string name="no_connection">אין אינטרנט, לא ניתן להוריד!</string>
+    <string name="version">גרסה</string>
+    <string name="size">גודל</string>
+    <string name="back">חזרה</string>
+    <string name="retry">נסה שוב</string>
+    <string name="premission_missing">אין לך הרשאה להוריד את הקבצים</string>
+    <string name="premission_missing_phone">נדרש הרשאה על מנת להציג את הקטלוג</string>
+    <string name="no_internet">אין חיבור לאינטרנט, לא ניתן להעלות את החנות</string>
+    <string name="single_download">חכה לסיום ההורדה</string>
+    <string name="open_app">פתח</string>
+    <string name="app_not_installed_from_notification">האפליקציה אינה מותקנת</string>
+</resources>

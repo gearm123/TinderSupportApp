@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Sensor-CarGuide</string>
+    <string name="title_all">All</string>
+    <string name="title_updates">Upates</string>
+    <string name="title_new">New</string>
+
+
+    <string name="action_download">Install</string>
+    <string name="action_update">Update</string>
+    <string name="action_uninstall">Remove</string>
+    <string name="action_installed">installed</string>
+    <string name="action_no_more_updates">latest version installed</string>
+    <string name="cannot_remove_sys_app">manufacturer version of app installed</string>
+    <string name="app_not_installed">the application is not installed on device</string>
+    <string name="no_connection">cannot download you have no connection!</string>
+    <string name="version">Version</string>
+    <string name="size">Size</string>
+    <string name="back">Back</string>
+    <string name="retry">RETRY</string>
+    <string name="premission_missing">We must have the external storage  permission to download files</string>
+    <string name="premission_missing_phone">We must have the phone state  permission to show catalog</string>
+    <string name="no_internet">No internet connection, cannot load store catalog</string>
+    <string name="single_download">wait for dwonload to  complete</string>
+    <string name="open_app">open</string>
+    <string name="app_not_installed_from_notification">application is not installed</string>
+</resources>
