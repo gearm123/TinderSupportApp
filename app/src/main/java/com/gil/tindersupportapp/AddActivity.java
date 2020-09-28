@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,9 +13,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.gil.tindersupportapp.model.MatchData;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddActivity extends AppCompatActivity {
     private AlertDialog emailDialog;
+    private List<MatchData> currentData = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +73,6 @@ public class AddActivity extends AppCompatActivity {
         lay.setOrientation(LinearLayout.VERTICAL);
         lay.addView(realName);
         lay.addView(description);
-        lay.addView(iconUrl);
         lay.addView(phoneSavedName);
         lay.addView(location);
         lay.addView(seeking);
@@ -109,15 +114,30 @@ public class AddActivity extends AppCompatActivity {
                                 ,seekingString);
                         StoreItemsFragment.mData.add(newPerson);
                         StoreItemsFragment.mAdapter.addItem();
+                        addToPreferences(newPerson);
                         emailDialog.dismiss();
                         finish();
                     }
                 });
             }
         });
-
-
         return alertDialog;
+    }
+
+    private void addToPreferences(MatchData toAdd){
+        SharedPreferences prefs = getSharedPreferences("tinder_support", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson=new Gson();
+        String currentArray = prefs.getString("current_array", null);
+        if (currentArray != null) {
+            currentData = gson.fromJson(currentArray, List.class);
+            currentData.add(toAdd);
+        }else{
+            currentData.add(toAdd);
+            editor.putString("current_app", gson.toJson(currentData));
+            editor.apply();
+        }
+
     }
 
 }

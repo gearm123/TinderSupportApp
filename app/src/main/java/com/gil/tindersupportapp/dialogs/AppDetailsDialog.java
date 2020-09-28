@@ -36,8 +36,9 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
     private ImageView mIcon;
     private TextView mTitle;
     private TextView mDescption;
-    private TextView mAction;
-    private TextView mCause;
+    private TextView savedPhone;
+    private TextView location;
+    private TextView seeking;
     private Button mCloseButton;
     private AppActionsClickListener mListner;
 
@@ -75,6 +76,9 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
         mIcon = mRoot.findViewById(R.id.app_icon);
         mTitle = mRoot.findViewById(R.id.app_title);
         mDescption = mRoot.findViewById(R.id.app_description);
+        savedPhone = mRoot.findViewById(R.id.saved_phone);
+        location = mRoot.findViewById(R.id.location);
+        seeking = mRoot.findViewById(R.id.seeking);
         mCloseButton = mRoot.findViewById(R.id.close_button);
 
         if (mData != null) {
@@ -84,9 +88,12 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
                     .transform(new RoundedCorners(cornerRadius))
                     .placeholder(R.mipmap.ic_launcher)
                     .into(mIcon);
-            mTitle.setText(mData.getDescription());
+            mTitle.setText("Name: "+mData.getRealNameame());
             mTitle.setTextColor(Color.BLUE);
             mDescption.setText(mData.getDescription());
+            savedPhone.setText("Saved On Phone: "+mData.getPhoneSavedName());
+            location.setText("Location: "+mData.getLocation());
+            seeking.setText("Seeking: "+mData.getSeeking());
             hideViews();
 
         }
@@ -140,7 +147,7 @@ public class AppDetailsDialog extends DialogFragment implements View.OnClickList
 
         if(mDescption.getText().toString().isEmpty()) {
             mDescption.setVisibility(View.GONE);
-        }
+            }
 
     }
 

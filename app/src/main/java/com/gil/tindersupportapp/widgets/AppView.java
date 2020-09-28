@@ -1,6 +1,7 @@
 package com.gil.tindersupportapp.widgets;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -75,10 +76,11 @@ public class AppView extends FrameLayout {
     }
 
     private void refreshViews() {
-        mAppName.setText(mAppData.getRealNameame());
-        mlocation.setText(mAppData.getLocation());
+        mAppName.setText("Name: "+mAppData.getRealNameame());
+        mlocation.setText("Location "+mAppData.getLocation());
         if (TextUtils.isEmpty(mAppData.getIconUrl())) {
-            mAppIcon.setVisibility(View.GONE);
+            //mAppIcon.setVisibility(View.GONE);
+            mAppIcon.setImageResource(R.drawable.woman);
         } else {
             mAppIcon.setVisibility(View.VISIBLE);
             Glide.with(getContext())
