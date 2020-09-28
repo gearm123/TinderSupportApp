@@ -16,9 +16,11 @@ import com.gil.tindersupportapp.interfaces.OnAppClickListener;
 import com.gil.tindersupportapp.model.MatchData;
 import com.gil.tindersupportapp.widgets.SpacesItemDecoration;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,13 +80,16 @@ public class StoreItemsFragment extends Fragment implements OnAppClickListener, 
 
     private void dispaydata() {
         mData.clear(); //TODO: improve this , editing existing items
-        Log.v("MGCarAppStore","here at disp");
+        Log.v("tinder_support","here at disp");
         MatchData tmpObject=null;
         SharedPreferences prefs = getContext().getSharedPreferences("tinder_support", MODE_PRIVATE);
+        Type type = new TypeToken<List<MatchData>>(){}.getType();
         Gson gson=new Gson();
-        String currentApp = prefs.getString("current_app", null);
-        currentDataArray=gson.fromJson(currentApp,List.class);
+        String currentApp = prefs.getString("current_array", null);
+        Log.v("tinder_support","current array is "+currentApp);
+        currentDataArray=gson.fromJson(currentApp,type);
         if(currentDataArray!= null) {
+            Log.v("tinder_support","current array is not null and size"+currentDataArray.size());
             for (int i = 0; i < currentDataArray.size(); i++) {
                 try {
                     tmpObject = currentDataArray.get(i);

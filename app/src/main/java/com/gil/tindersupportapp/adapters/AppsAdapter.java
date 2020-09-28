@@ -34,7 +34,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.MyViewHolder> 
     }
 
     public void notifyAppItemChanged(MatchData matchData) {
-;        for (int i = 0; i < mDataset.size(); i++) {
+        for (int i = 0; i < mDataset.size(); i++) {
             if (mDataset.get(i).getRealNameame().equals(matchData.getRealNameame())) {
                 notifyItemChanged(i);
                 break;
@@ -46,6 +46,15 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.MyViewHolder> 
         ;        for (int i = 0; i < mDataset.size(); i++) {
             if (mDataset.get(i).getRealNameame().equals(matchData.getRealNameame())) {
                 mDataset.set(i, matchData);
+                notifyItemChanged(i);
+                break;
+            }
+        }
+    }
+
+    public void notifyAppItemChangedString(String oldName) {
+        for (int i = 0; i < mDataset.size(); i++) {
+            if (mDataset.get(i).getRealNameame().equals(oldName)) {
                 notifyItemChanged(i);
                 break;
             }
